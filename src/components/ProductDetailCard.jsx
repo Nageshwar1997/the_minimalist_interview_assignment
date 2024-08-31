@@ -1,11 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import horizontalLine from "../assets/productDetailCardHorizontalDashedLine.png";
 import starIcon from "../assets/starIcon.png";
 import { IoClose } from "react-icons/io5";
-import { Context } from "../context";
+import { Context } from "../context/product.context";
 
 const ProductDetailCard = ({ productDetails, images }) => {
   const { setShowProductDetailsCard } = useContext(Context);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Handler to change the main image
+  const handleThumbnailClick = (index) => {
+    setCurrentImageIndex(index);
+  };
+
   return (
     <div className="fixed inset-0 z-50 p-4 sm:p-6 md:p-8 lg:p-10 flex justify-center items-center overflow-hidden bg-black/50 backdrop-blur-md">
       <div className="relative bg-white w-full max-w-6xl h-auto flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-8 p-4 lg:p-6 xl:p-8 overflow-hidden rounded-lg shadow-lg">
@@ -13,7 +20,7 @@ const ProductDetailCard = ({ productDetails, images }) => {
         <div className="w-full flex flex-col gap-4 lg:w-2/3">
           <div className="w-full h-auto overflow-hidden rounded-lg shadow-md">
             <img
-              src={images[0]}
+              src={images[currentImageIndex]} // Use currentImageIndex to display the selected image
               alt="MainImage"
               className="w-full h-auto object-cover rounded-lg"
             />
@@ -22,11 +29,12 @@ const ProductDetailCard = ({ productDetails, images }) => {
             {images.map((image, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[100px] lg:w-[150px] h-auto overflow-hidden rounded-lg shadow-sm"
+                className="flex-shrink-0 w-[100px] lg:w-[150px] h-auto overflow-hidden rounded-lg shadow-sm cursor-pointer"
+                onClick={() => handleThumbnailClick(index)} // Set the index on click
               >
                 <img
                   src={image}
-                  alt={`Image${index + 2}`}
+                  alt={`Image${index + 1}`}
                   className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
@@ -40,7 +48,9 @@ const ProductDetailCard = ({ productDetails, images }) => {
           </h1>
           <h2 className="text-md sm:text-lg lg:text-xl text-gray-600">
             MRP:{" "}
-            <span className="font-semibold text-gray-900">{productDetails?.price}/-</span>
+            <span className="font-semibold text-gray-900">
+              {productDetails?.price}/-
+            </span>
           </h2>
           <img src={horizontalLine} alt="Line" className="my-2 w-full" />
           <div>
@@ -81,7 +91,7 @@ const ProductDetailCard = ({ productDetails, images }) => {
               Before Raju understands that his dreams do not matter.
             </p>
           </div>
-          <button className="bg-[#FE0000] text-white py-3 px-4 text-xl rounded hover:bg-blue-600 transition duration-200 mt-4">
+          <button className="bg-[#FE0000] text-white py-3 px-4 text-xl rounded hover:bg-[#ef0606] transition duration-200 mt-4 shadow-md">
             Choose Now
           </button>
         </div>

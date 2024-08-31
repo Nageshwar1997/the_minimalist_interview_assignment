@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import backgroundImage from "../assets/TopBannerBackgroundImage.png";
-import { Context } from "../context";
+import { Context } from "../context/product.context";
 
 const TopBanner = () => {
   const { setShowProductDetailsCard, setProductDetails } = useContext(Context);
@@ -23,8 +23,7 @@ const TopBanner = () => {
             setProductDetails({
               name: "Raju Rassibomb",
               price: "₹ 1,00,000",
-            })
-
+            });
           }}
         >
           Quick View
