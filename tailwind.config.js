@@ -13,8 +13,8 @@ module.exports = {
         "2xl": "1536px",
       },
       colors: {
-        darkBackground: "#1a1a1a",
-        darkText: "#e0e0e0",
+        darkBackground: "#1a1a1a", // Dark mode background color
+        darkText: "#e0e0e0", // Dark mode text color
         whiteBackground: "#ffffff",
         whiteText: "#333333",
         borderLight: "#dcdcdc",

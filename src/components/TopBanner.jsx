@@ -11,13 +11,16 @@ const TopBanner = () => {
     backgroundPosition: "center",
   };
   return (
-    <div className="w-full h-[527px]" style={backgroundImageStyle}>
-      <div className="w-full h-full flex flex-col justify-end pb-24 px-32">
-        <h1 className="text-white text-[44px] font-bold leading-[56px]">
+    <div
+      className="w-full h-[527px] bg-cover bg-center"
+      style={backgroundImageStyle}
+    >
+      <div className="w-full h-full flex flex-col justify-end pb-6 px-4 sm:px-8 md:px-12 lg:px-24 xl:px-32 bg-black/40 dark:bg-darkBackground/40">
+        <h1 className="text-white text-[32px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-bold leading-tight sm:leading-[48px] md:leading-[52px] lg:leading-[56px]">
           The choice is yours. <br /> Because they don't have one.
         </h1>
         <button
-          className="bg-white text-[#FE0000] w-[211px] h-[52px] mt-12 rounded-sm font-bold uppercase"
+          className="bg-white text-[#FE0000] w-full sm:w-[211px] h-[52px] mt-6 sm:mt-12 rounded-sm font-bold uppercase"
           onClick={() => {
             setShowProductDetailsCard(true);
             setProductDetails({

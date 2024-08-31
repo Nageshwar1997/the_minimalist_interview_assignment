@@ -1,5 +1,4 @@
-import React from "react";
-import LightModeLogo from "../assets/LogoLightMode.png";
+import LightModeLogo from "../assets/Logo.png";
 
 const Header = () => {
   return (
